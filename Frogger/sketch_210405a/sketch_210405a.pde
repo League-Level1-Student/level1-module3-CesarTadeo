@@ -1,6 +1,8 @@
 int frog_x = 400;
 int frog_y = 550;
 Car one = new Car(400, 300, 100, 50);
+Car two = new Car(600, 100, 100, 50);
+Car three = new Car(200, 500, 100, 50);
 
 void setup() {
   size(800, 600);
@@ -11,6 +13,10 @@ void draw() {
   fill(9, 228, 67);
   ellipse(frog_x, frog_y, 50, 50);
   one.display();
+  one.left();
+  two.display();
+  two.right();
+  three.display();
 }
 void keyPressed()
 {
@@ -54,8 +60,23 @@ public class Car {
     this.car_size = car_size;
     this.car_speed = car_speed;
   }
+  
+  public void left(){
+    car_x --;
+    if (car_x <= 0){
+      car_x = width;
+    } 
+  }
+  
+  public void right(){
+    car_x ++;
+    if (car_x >= width){
+      car_x = 0;
+    } 
+  }
+  
   void display() {
     fill(0, 255, 0);
-    rect(400, 300, 100, 50);
+    rect(car_x, car_y, 100, 50);
   }
 }
