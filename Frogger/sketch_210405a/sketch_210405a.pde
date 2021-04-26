@@ -60,23 +60,42 @@ public class Car {
     this.car_size = car_size;
     this.car_speed = car_speed;
   }
-  
-  public void left(){
+
+  public void left() {
     car_x --;
-    if (car_x <= 0){
+    if (car_x <= 0) {
       car_x = width;
-    } 
+    }
   }
-  
-  public void right(){
+
+  public void right() {
     car_x ++;
-    if (car_x >= width){
+    if (car_x >= width) {
       car_x = 0;
-    } 
+    }
   }
-  
+
   void display() {
     fill(0, 255, 0);
     rect(car_x, car_y, 100, 50);
+  }
+
+  int getX() {
+    return car_x;
+  }
+  int getY() {
+    return car_y;
+  }
+  int getSize() {
+    return car_size;
+  }
+
+  boolean intersects(Car car) {
+    if ((frog_y > car.getY() && frog_y < car.getY()+50) &&
+      (frog_x > car.getX() && frog_x < car.getX()+car.getSize())) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
