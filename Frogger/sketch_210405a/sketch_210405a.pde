@@ -1,5 +1,5 @@
 int frog_x = 400;
-int frog_y = 550;
+int frog_y = 570;
 Car one = new Car(400, 300, 100, 50);
 Car two = new Car(600, 100, 100, 50);
 Car three = new Car(200, 500, 100, 50);
@@ -17,6 +17,23 @@ void draw() {
   two.display();
   two.right();
   three.display();
+  three.right();
+  
+  boolean crash = one.intersects(one);
+  if (crash){
+    frog_x = 400;
+    frog_y = 570;
+  }
+  crash = two.intersects(two);
+  if (crash){
+    frog_x = 400;
+    frog_y = 570;
+  }
+  crash = three.intersects(three);
+  if (crash){
+    frog_x = 400;
+    frog_y = 570;
+  }
 }
 void keyPressed()
 {
