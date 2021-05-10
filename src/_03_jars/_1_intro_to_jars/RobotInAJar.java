@@ -1,10 +1,13 @@
 package _03_jars._1_intro_to_jars;
 
+import java.util.Iterator;
+
+import org.jointheleague.graphical.robot.Robot;
 
 public class RobotInAJar {
-	
+
 	/* 1.   Create a String variable and initialize it to your name  */
-	
+	String name = "Cesar";
 	
 	/* If you did not make any syntax errors, there should be no red lines under your code. 
 	 * This is because the type String is part of the basic Java language that all programs  
@@ -12,12 +15,13 @@ public class RobotInAJar {
 	
 	
 	/* 2.   Now declare a Robot variable and create a new Robot  */
-
+	Robot bot = new Robot();
 	
 	/* Even if you did not make any syntax errors, there should be a red line under the word Robot.
 	 * This is because the type Robot is not part of the basic Java language. If you want to use 
 	 * a Robot in your code, you must import the Robot class and all its code.   */
-
+		
+	
 	/* Hover your mouse over the word Robot, and Eclipse should offer you a "quick fix" like this: 
 	 * 								Import 'Robot' (java.awt) 
 	 * HOWEVER, even though Java has this Robot class (in its java.awt library), 
@@ -58,7 +62,13 @@ public class RobotInAJar {
 	
 	public void draw() {
 		/*** Write code to make your robot draw a shape here ****/
-		
-		
+		bot.penDown();
+		bot.miniaturize();
+		bot.setSpeed(500);
+		for (int i = 0; i < 5; i++) {
+			bot.move(50);
+			bot.turn(90);
+		}		
 	}
 }
+	
